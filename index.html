@@ -1,0 +1,281 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roots91 - Flavored Foxnut / Makhana</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Define custom colors for a dual-tone, earthy green palette */
+        :root {
+            --color-primary: #1A531A; /* Deep Forest Green */
+            --color-secondary: #4A7A4A; /* Muted Olive Green */
+            --color-accent: #A8D18C; /* Pale Green Accent */
+            --color-text-dark: #2C2C2C; /* Slightly softer dark text */
+            --color-light-bg: #F7FDF7; /* Very light, warm green-cream */
+            --color-dark-bg: #0A2A0A; /* Very Dark Forest Green for footer */
+            --color-white: #fff;
+        }
+
+        /* General Styles */
+        body {
+            font-family: 'Inter', sans-serif; /* Default font for body */
+            color: var(--color-text-dark); /* Dark gray text */
+            line-height: 1.7; /* Increased line height for readability */
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif; /* Headings font */
+            color: var(--color-primary); /* Primary brand color (Deep Forest Green) */
+            font-weight: 700; /* Default bold for headings */
+        }
+
+        /* Custom styling for the header navigation links for hover effect */
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            width: 0;
+            height: 2px;
+            background-color: var(--color-accent); /* Pale Green accent */
+            transition: width 0.3s ease-in-out;
+        }
+
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+
+        /* Hero section background and overlay */
+        .hero-bg {
+            /* Realistic hero background image from Unsplash */
+            background-image: url('https://source.unsplash.com/random/1500x700/?healthy-snack,food-background');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+            .hero-bg::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.45); /* Slightly darker overlay for better contrast */
+                z-index: 1;
+            }
+
+        /* Custom underline for section headings */
+        .section-heading::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 0;
+            width: 80px; /* Slightly wider underline */
+            height: 4px; /* Thicker underline */
+            background-color: var(--color-accent); /* Pale Green accent */
+            border-radius: 2px; /* Rounded ends for the underline */
+        }
+
+        /* Ensure smooth scroll behavior */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Fade-in animation for sections */
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+            .fade-in-section.is-visible {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        /* Product card specific hover effect */
+        .product-card:hover {
+            transform: translateY(-8px) scale(1.02); /* More pronounced lift and slight scale */
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15); /* Stronger, softer shadow */
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-800">
+
+    <header class="bg-white shadow-lg py-4 sticky top-0 z-50">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <a href="#" class="text-4xl font-extrabold text-[var(--color-primary)] font-montserrat tracking-tight">Roots91</a>
+            <nav class="hidden md:flex space-x-8" id="navMenu">
+                <a href="#home" class="nav-link text-lg font-medium text-gray-700 hover:text-[var(--color-secondary)] relative transition-colors duration-300">Home</a>
+                <a href="#products" class="nav-link text-lg font-medium text-gray-700 hover:text-[var(--color-secondary)] relative transition-colors duration-300">Products</a>
+                <a href="#about" class="nav-link text-lg font-medium text-gray-700 hover:text-[var(--color-secondary)] relative transition-colors duration-300">About Us</a>
+                <a href="#contact" class="nav-link text-lg font-medium text-gray-700 hover:text-[var(--color-secondary)] relative transition-colors duration-300">Contact</a>
+            </nav>
+            <div class="md:hidden text-3xl text-[var(--color-primary)] cursor-pointer" id="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+        <nav class="md:hidden bg-white shadow-lg py-4 absolute top-full left-0 w-full hidden" id="mobileNavMenu">
+            <ul class="flex flex-col items-center space-y-4">
+                <li><a href="#home" class="text-lg font-semibold text-gray-700 hover:text-[var(--color-secondary)] block py-2">Home</a></li>
+                <li><a href="#products" class="text-lg font-semibold text-gray-700 hover:text-[var(--color-secondary)] block py-2">Products</a></li>
+                <li><a href="#about" class="text-lg font-semibold text-gray-700 hover:text-[var(--color-secondary)] block py-2">About Us</a></li>
+                <li><a href="#contact" class="text-lg font-semibold text-gray-700 hover:text-[var(--color-secondary)] block py-2">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero-bg text-white text-center py-24 md:py-40 min-h-[500px] flex items-center justify-center fade-in-section">
+            <div class="relative z-10 max-w-4xl mx-auto px-4">
+                <h1 class="text-4xl md:text-6xl font-extrabold mb-6 leading-tight font-montserrat drop-shadow-lg">Experience the Flavorful Crunch of Roots91 Foxnuts!</h1>
+                <p class="text-lg md:text-xl mb-10 opacity-90 drop-shadow-md font-light">Naturally delicious, perfectly roasted, and packed with goodness. Discover your favorite healthy snack.</p>
+                <a href="#products" class="inline-block bg-[var(--color-primary)] text-white px-10 py-4 rounded-full text-lg font-semibold hover:bg-[var(--color-secondary)] transition duration-300 shadow-2xl transform hover:-translate-y-2 hover:scale-105">Explore Our Flavors</a>
+            </div>
+        </section>
+
+        <section id="products" class="py-16 md:py-24 bg-[var(--color-light-bg)] fade-in-section">
+            <div class="container mx-auto px-4">
+                <h2 class="section-heading text-4xl font-bold text-center mb-12 relative pb-4 font-montserrat">Our Delicious Flavors</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden text-center product-card border border-gray-100">
+                        <img src="https://source.unsplash.com/random/400x250/?cheese,snack" alt="Roots91 Cheese Burst Foxnut" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-semibold mb-3 text-[var(--color-primary)] font-montserrat">Cheese Burst Makhana</h3>
+                            <p class="text-gray-600 mb-4 text-base">A cheesy delight for your taste buds. Perfect for movie nights!</p>
+                            <span class="text-2xl font-bold text-[var(--color-secondary)] block mb-4">₹99</span>
+                            <a href="#" class="inline-block bg-white text-[var(--color-secondary)] border-2 border-[var(--color-secondary)] px-6 py-3 rounded-full font-semibold hover:bg-[var(--color-secondary)] hover:text-white transition duration-300">View Product</a>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden text-center product-card border border-gray-100">
+                        <img src="https://source.unsplash.com/random/400x250/?bbq,chips" alt="Roots91 Smoked BBQ Foxnut" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-semibold mb-3 text-[var(--color-primary)] font-montserrat">Smoked BBQ Makhana</h3>
+                            <p class="text-gray-600 mb-4 text-base">Tangy, smoky, and irresistibly crunchy. A flavor explosion!</p>
+                            <span class="text-2xl font-bold text-[var(--color-secondary)] block mb-4">₹99</span>
+                            <a href="#" class="inline-block bg-white text-[var(--color-secondary)] border-2 border-[var(--color-secondary)] px-6 py-3 rounded-full font-semibold hover:bg-[var(--color-secondary)] hover:text-white transition duration-300">View Product</a>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden text-center product-card border border-gray-100">
+                        <img src="https://source.unsplash.com/random/400x250/?mint,herbs,snack" alt="Roots91 Mint Magic Foxnut" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-semibold mb-3 text-[var(--color-primary)] font-montserrat">Mint Magic Makhana</h3>
+                            <p class="text-gray-600 mb-4 text-base">Refreshing mint with a hint of spice. A unique and healthy snack.</p>
+                            <span class="text-2xl font-bold text-[var(--color-secondary)] block mb-4">₹99</span>
+                            <a href="#" class="inline-block bg-white text-[var(--color-secondary)] border-2 border-[var(--color-secondary)] px-6 py-3 rounded-full font-semibold hover:bg-[var(--color-secondary)] hover:text-white transition duration-300">View Product</a>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden text-center product-card border border-gray-100">
+                        <img src="https://source.unsplash.com/random/400x250/?spicy,chili,snack" alt="Roots91 Peri Peri Foxnut" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-semibold mb-3 text-[var(--color-primary)] font-montserrat">Peri Peri Makhana</h3>
+                            <p class="text-gray-600 mb-4 text-base">Spicy kick with every bite! For those who love a little heat.</p>
+                            <span class="text-2xl font-bold text-[var(--color-secondary)] block mb-4">₹99</span>
+                            <a href="#" class="inline-block bg-white text-[var(--color-secondary)] border-2 border-[var(--color-secondary)] px-6 py-3 rounded-full font-semibold hover:bg-[var(--color-secondary)] hover:text-white transition duration-300">View Product</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="py-16 md:py-24 bg-white fade-in-section">
+            <div class="container mx-auto px-4">
+                <h2 class="section-heading text-4xl font-bold text-center mb-12 relative pb-4 font-montserrat">About Roots91</h2>
+                <div class="flex flex-col md:flex-row items-center gap-12">
+                    <div class="md:w-1/2">
+                        <img src="https://source.unsplash.com/random/600x400/?nature,farm,healthy-food" alt="Roots91 Story" class="w-full rounded-xl shadow-lg">
+                    </div>
+                    <div class="md:w-1/2 text-center md:text-left">
+                        <p class="text-lg text-gray-700 mb-6 leading-relaxed">At Roots91, we believe in bringing you snacks that are not just delicious but also wholesome. Our journey began with a simple idea: to transform the humble foxnut (makhana) into a gourmet snacking experience.</p>
+                        <p class="text-lg text-gray-700 mb-6 leading-relaxed">Sourced from the finest farms, our foxnuts are meticulously roasted and seasoned with unique, authentic flavors. We're passionate about healthy living and strive to offer products that are natural, gluten-free, and perfect for guilt-free indulgence.</p>
+                        <p class="text-lg text-gray-700 leading-relaxed">Join us on a journey of taste and wellness with Roots91!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="py-16 md:py-24 bg-[var(--color-light-bg)] fade-in-section">
+            <div class="container mx-auto px-4 text-center">
+                <h2 class="section-heading text-4xl font-bold mb-12 relative pb-4 font-montserrat">Get in Touch</h2>
+                <p class="text-lg text-gray-700 mb-10">Have questions, feedback, or just want to say hello? We'd love to hear from you!</p>
+                <form class="max-w-xl mx-auto space-y-6">
+                    <input type="text" placeholder="Your Name" class="w-full p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)] focus:border-transparent transition duration-200" required>
+                    <input type="email" placeholder="Your Email" class="w-full p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)] focus:border-transparent transition duration-200" required>
+                    <textarea placeholder="Your Message" rows="6" class="w-full p-4 border border-gray-300 rounded-lg resize-y focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)] focus:border-transparent transition duration-200" required></textarea>
+                    <button type="submit" class="bg-[var(--color-primary)] text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-[var(--color-secondary)] transition duration-300 shadow-xl transform hover:-translate-y-1 hover:scale-105">Send Message</button>
+                </form>
+                <div class="mt-12 flex justify-center space-x-8">
+                    <a href="#" target="_blank" class="text-[var(--color-primary)] hover:text-[var(--color-secondary)] text-4xl transition duration-300 transform hover:-translate-y-1"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" target="_blank" class="text-[var(--color-primary)] hover:text-[var(--color-secondary)] text-4xl transition duration-300 transform hover:-translate-y-1"><i class="fab fa-instagram"></i></a>
+                    <a href="#" target="_blank" class="text-[var(--color-primary)] hover:text-[var(--color-secondary)] text-4xl transition duration-300 transform hover:-translate-y-1"><i class="fab fa-twitter"></i></a>
+                    <a href="#" target="_blank" class="text-[var(--color-primary)] hover:text-[var(--color-secondary)] text-4xl transition duration-300 transform hover:-translate-y-1"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-[var(--color-dark-bg)] text-white py-8 text-center">
+        <div class="container mx-auto px-4">
+            <p class="text-lg mb-2">&copy; 2025 Roots91. All rights reserved.</p>
+            <p class="text-md">Made with <span class="text-red-400">&hearts;</span> in Pimpri-Chinchwad, India</p>
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript for mobile navigation toggle
+        document.addEventListener('DOMContentLoaded', () => {
+            const hamburger = document.getElementById('hamburger');
+            const mobileNavMenu = document.getElementById('mobileNavMenu');
+
+            // Toggle mobile menu visibility
+            hamburger.addEventListener('click', () => {
+                mobileNavMenu.classList.toggle('hidden');
+            });
+
+            // Close mobile menu when a link is clicked (for smooth scrolling)
+            mobileNavMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileNavMenu.classList.add('hidden');
+                });
+            });
+
+            // Optional: Close mobile menu if window is resized to desktop size
+            window.addEventListener('resize', () => {
+                if (window.innerWidth >= 768) { // Tailwind's 'md' breakpoint
+                    mobileNavMenu.classList.add('hidden');
+                }
+            });
+
+            // Intersection Observer for fade-in animation
+            const faders = document.querySelectorAll('.fade-in-section');
+            const appearOptions = {
+                threshold: 0.2, /* Trigger when 20% of the section is visible */
+                rootMargin: "0px 0px -100px 0px" /* Adjust bottom margin to trigger earlier */
+            };
+
+            const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+                entries.forEach(entry => {
+                    if (!entry.isIntersecting) {
+                        return;
+                    } else {
+                        entry.target.classList.add('is-visible');
+                        appearOnScroll.unobserve(entry.target); // Stop observing once visible
+                    }
+                });
+            }, appearOptions);
+
+            faders.forEach(fader => {
+                appearOnScroll.observe(fader);
+            });
+        });
+    </script>
+</body>
+</html>
